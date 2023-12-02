@@ -10,6 +10,7 @@ add_executable(${PROJECT_NAME}
   src/slash.cpp
   src/commands/hello.cpp
   src/bot.cpp
+  src/commands/avatar.cpp
 )
 
 find_package(DPP REQUIRED)
