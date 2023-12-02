@@ -5,7 +5,7 @@
 const std::string CONFIG_FILENAME = "config.yml";
 
 namespace Config {
-YAML::Node* config;
+YAML::Node config;
 
 YAML::Node loadConfig() {
   std::ifstream file(CONFIG_FILENAME);
@@ -21,13 +21,13 @@ YAML::Node loadConfig() {
   file.close();
 
   YAML::Node node = YAML::Load(content);
-  config = &node;
+  config = node;
   return node;
 }
 
 void createConfig() {
   std::ofstream file(CONFIG_FILENAME);
-  file << "token: \"YOUR_TOKEN_HERE\"\n";
+  file << "token: \"YOUR_TOKEN_HERE\"\ncolors:\nneutral-blue: 0x0275bd\nerror-red: 0xbd021b\nsuccess-green: 0x56b300";
   file.close();
 }
 }

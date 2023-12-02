@@ -4,6 +4,6 @@ namespace Config {
 YAML::Node loadConfig();
 void createConfig();
 
-extern YAML::Node* config;
+extern YAML::Node config;
 
 }
