@@ -9,6 +9,7 @@ add_executable(${PROJECT_NAME}
   src/commands/ping.cpp
   src/slash.cpp
   src/commands/hello.cpp
+  src/bot.cpp
 )
 
 find_package(DPP REQUIRED)

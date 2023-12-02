@@ -11,3 +11,8 @@ void execute(const dpp::slashcommand_t& event);
 }
 void RegisterCommands(dpp::cluster& bot);
 }
+
+const std::unordered_map<std::string, std::function<void(const dpp::slashcommand_t& event)>> Commands = {
+  {"ping", &Bot::PingCommand::execute},
+  {"hello", &Bot::HelloCommand::execute},
+};
