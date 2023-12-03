@@ -12,7 +12,7 @@ void execute(const dpp::slashcommand_t& event);
 namespace AvatarCommand {
 void registerCommand(dpp::cluster& bot);
 void execute(const dpp::slashcommand_t& event);
-std::string getAvatarURL(dpp::user* user);
+std::string getAvatarURL(dpp::user& user, dpp::image_type format);
 }
 void RegisterCommands(dpp::cluster& bot);
 }
