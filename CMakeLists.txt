@@ -3,14 +3,29 @@ project(discord-bot VERSION 1.0 DESCRIPTION "A discord bot")
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
+set(SRCDIR src)
+set(EVENTDIR ${SRCDIR}/events)
+set(CMDDIR ${SRCDIR}/commands)
+
+set(EVENTS
+  ${EVENTDIR}/ready.cpp
+  ${EVENTDIR}/slashcommand.cpp
+)
+
+set(COMMANDS
+  ${CMDDIR}/avatar.cpp
+  ${CMDDIR}/hello.cpp
+  ${CMDDIR}/ping.cpp
+)
+
 add_executable(${PROJECT_NAME}
-  src/main.cpp
-  src/config.cpp
-  src/commands/ping.cpp
-  src/slash.cpp
-  src/commands/hello.cpp
-  src/bot.cpp
-  src/commands/avatar.cpp
+  ${SRCDIR}/main.cpp
+  ${SRCDIR}/config.cpp
+  ${SRCDIR}/slash.cpp
+  ${SRCDIR}/bot.cpp
+  ${SRCDIR}/event.cpp
+  ${COMMANDS}
+  ${EVENTS}
 )
 
 find_package(DPP REQUIRED)
