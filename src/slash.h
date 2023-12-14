@@ -16,9 +16,13 @@ std::string getAvatarURL(dpp::user& user, dpp::image_type format);
 }
 void RegisterCommands(dpp::cluster& bot);
 }
+struct Command {
+  std::function<void(dpp::cluster& bot)> registerFunc;
+  std::function<void(const dpp::slashcommand_t& event)> eventFireFunc;
+};
 
-const std::unordered_map<std::string, std::function<void(const dpp::slashcommand_t& event)>> Commands = {
-  {"ping", &Bot::PingCommand::execute},
-  {"hello", &Bot::HelloCommand::execute},
-  {"avatar", &Bot::AvatarCommand::execute},
+const std::unordered_map<std::string, Command> Commands = {
+  {"ping", (struct Command){.registerFunc = &Bot::PingCommand::registerCommand, .eventFireFunc = &Bot::PingCommand::execute,}},
+  {"hello", (struct Command){.registerFunc = &Bot::HelloCommand::registerCommand, .eventFireFunc = &Bot::HelloCommand::execute,}},
+  {"avatar", (struct Command){.registerFunc = &Bot::AvatarCommand::registerCommand, .eventFireFunc = &Bot::AvatarCommand::execute,}},
 };
