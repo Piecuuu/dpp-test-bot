@@ -24,6 +24,7 @@ add_executable(${PROJECT_NAME}
   ${SRCDIR}/slash.cpp
   ${SRCDIR}/bot.cpp
   ${SRCDIR}/event.cpp
+  ${SRCDIR}/logger.cpp
   ${COMMANDS}
   ${EVENTS}
 )
