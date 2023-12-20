@@ -1,5 +1,6 @@
 #include "../event.h"
 #include "../slash.h"
+#include "../logger.h"
 
 namespace Bot {
 namespace ReadyEvent {
@@ -8,7 +9,7 @@ void Register(dpp::cluster& bot) {
     if (dpp::run_once<struct register_bot_commands>()) {
       Bot::RegisterCommands(bot);
     }
-    std::cout << "Logged in as " << bot.me.username << "#" << bot.me.discriminator << " (" << bot.me.id << ")\n";
+    Logger::log(std::format("Logged in as {}#{} ({})\n", bot.me.username, bot.me.discriminator, bot.me.id.str()));
   });
 }
 }

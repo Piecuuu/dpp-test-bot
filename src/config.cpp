@@ -1,6 +1,7 @@
 #include "config.h"
 #include <fstream>
 #include <iostream>
+#include "logger.h"
 
 const std::string CONFIG_FILENAME = "config.yml";
 
@@ -12,7 +13,7 @@ YAML::Node loadConfig() {
   //if(!file.good()) throw std::runtime_error("Couldn't open 'config.yml'. File may be missing.");
   if(!file.good()) {
     createConfig();
-    std::cout << "Remember to check out the 'config.yml' before you start!\n";
+    Logger::warn("Remember to check out the 'config.yml' before you start!\n");
     return loadConfig();
   }
   std::ostringstream sstr;

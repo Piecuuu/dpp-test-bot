@@ -1,17 +1,18 @@
 #include "slash.h"
 #include "config.h"
+#include "logger.h"
 
 namespace Bot {
 void RegisterCommands(dpp::cluster& bot) {
   std::string SPACER = Config::config["spacer"].as<std::string>();
   int numOfRegistered = 0;
-  std::cout << "Registering Commands...\n" << SPACER << "\n";
+  Logger::debug("Registering Commands...\n" + SPACER + "\n");
   for(auto& command : Commands) {
-    std::cout << "Registering (command) " << command.first << "\n";
+    Logger::debug("Registering (command) " + command.first + "\n");
     command.second.registerFunc(bot);
-    std::cout << "Registered (command) " << command.first << "\n" << SPACER << "\n";
+    Logger::debug("Registered (command) " + command.first + "\n" + SPACER + "\n");
     numOfRegistered++;
   }
-  std::cout << "Registered Commands: " << numOfRegistered << "\n" << SPACER << "\n";
+  Logger::debug(std::format("Registered Commands: {}\n{}\n", numOfRegistered, SPACER));
 }
 }
