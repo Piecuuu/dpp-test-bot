@@ -28,7 +28,12 @@ YAML::Node loadConfig() {
 
 void createConfig() {
   std::ofstream file(CONFIG_FILENAME);
-  file << "token: \"YOUR_TOKEN_HERE\"\ncolors:\nneutral-blue: 0x0275bd\nerror-red: 0xbd021b\nsuccess-green: 0x56b300\nspacer: \"------------------------------------\"\n";
+  file << "token: \"YOUR_TOKEN_HERE\"\n";
+  file << "colors:\n";
+  file << "  neutral-blue: 0x0275bd\n";
+  file << "  error-red: 0xbd021b\n";
+  file << "  success-green: 0x56b300\n";
+  file << "spacer: \"------------------------------------\"\n";
   file.close();
 }
 }
