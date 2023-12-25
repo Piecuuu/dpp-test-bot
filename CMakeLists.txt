@@ -31,15 +31,21 @@ add_executable(${PROJECT_NAME}
 
 find_package(DPP REQUIRED)
 find_package(yaml-cpp REQUIRED)
+find_package(OpenCV REQUIRED)
+find_package(CURL REQUIRED)
 
 target_link_libraries(${PROJECT_NAME}
   ${DPP_LIBRARIES}
   ${YAML_CPP_LIBRARIES}
+  ${OpenCV_LIBS}
+  ${CURL_LIBRARIES}
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE
   ${DPP_INCLUDE_DIR}
   ${YAML_INCLUDE_DIR}
+  ${OpenCV_INCLUDE_DIRS}
+  ${CURL_INCLUDE_DIRS}
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
