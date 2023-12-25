@@ -91,10 +91,10 @@ void Logger::log(std::string message, const std::source_location location) {
   std::cout << Colors[ColorList::Log] << "[LOG] " << Logger::base(location) << message;
 }
 void Logger::error(std::string message, const std::source_location location) {
-  std::cout << Colors[ColorList::Error] << "[ERROR] " << Logger::base(location) << message;
+  std::cerr << Colors[ColorList::Error] << "[ERROR] " << Logger::base(location) << message;
 }
 void Logger::warn(std::string message, const std::source_location location) {
-  std::cout << Colors[ColorList::Warn] << "[WARN] " << Logger::base(location) << message;
+  std::cerr << Colors[ColorList::Warn] << "[WARN] " << Logger::base(location) << message;
 }
 void Logger::debug(std::string message, const std::source_location location) {
   std::cout << Colors[ColorList::Debug] << "[DEBUG] " << Logger::base(location) << message;
